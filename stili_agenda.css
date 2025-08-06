@@ -1,0 +1,45 @@
+body {
+    background-color: rgb(0, 0, 0);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 200;
+    font-size: large;
+    color: #00ff00;
+}
+
+.div {
+    display: flex;
+    margin: 10px;
+    align-items: center; 
+    height: 100vh;
+}
+
+ table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+   margin: 0 auto;}
+
+.firstI{
+  background-color: black;
+  color: #00ff00;
+  border: solid white 1px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.firstII{
+  background-color: black;
+  color: #00ff00;
+  border: solid white 1px;
+  border-radius: 5px;
+}
+
+.scelta{
+  display: none;
+  margin: 100px 20px 20px 440px;
+  align-items: center;
+
+}
+
+
+

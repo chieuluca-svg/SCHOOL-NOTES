@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agenda personale</title>
+    <link rel="stylesheet" href="stili_agenda.css">
+</head>
+<body>
+
+    <div id="cont_first" style="display: block; margin: 90px 20px 20px 20px; text-align: center; justify-content: center;">
+        <h1 style="text-align: center; display: flex; justify-content: center;">WHAT KIND OF ACTIVITY DO YOU WANT TO ADD?</h1>
+        <h3 style="text-align: center;">School Facts</h3>
+        <div>
+            <button class="firstI" style="cursor: pointer;" id="Write">Write Tests</button>
+            <button class="firstI" style="cursor: pointer;" id="Oral">Oral Tests</button>
+            <button class="firstI" style="cursor: pointer;" id="Event">Events or Meetings</button>
+        </div>
+        <br>
+    </div>
+
+    <div id="tests" class="scelta" style="display: none;">
+        <form id="first" name="first" action="https://script.google.com/macros/s/AKfycbxzL19Kb2EGdFWcxyvlyAEUnriea4Bd6JD7OSyEW9vYHhAz96nNflJFDN9Mh0ZnKGxF/exec" method="POST">
+            <h2>WRITING ASSIGNMENT</h2><br>
+            <p>Assignment Date:</p>
+            <input class="firstI" name="Assignment Date (Day)" placeholder="Day">
+            <input class="firstI" name="Assignment Date (Month)" placeholder="Month">
+            <input class="firstI" name="Assignment Date (Year)" placeholder="Year">
+            <p>Deadline:</p>
+            <input class="firstI" name="Deadline (Day)" placeholder="Day">
+            <input class="firstI" name="Deadline (Month)" placeholder="Month">
+            <input class="firstI" name="Deadline (Year)" placeholder="Year">
+            <p>Subject:</p>
+            <select class="firstI" name="Subject">
+                <option>Italiano (Epica)</option>
+                <option>Italiano (Grammatica)</option>
+                <option>Italiano (Antologia)</option>
+                <option>Matematica (Algebra)</option>
+                <option>Matematica (Geometria)</option>
+                <option>Scienze (Chimica)</option>
+                <option>Fisica</option>
+                <option>Storia dell'arte</option>
+            </select>
+            <p>Description:</p>
+            <textarea class="firstII" name="Description" rows="4" cols="50"></textarea>
+            <button type="submit" name="confirm" class="firstII">Confirm Table</button>
+        </form>
+    </div>
+
+    <div id="oral" class="scelta" style="display: none;">
+        <form id="second" name="second" action="https://script.google.com/macros/s/AKfycbyNaOmTeH5DjkIGKzEbeTs6rtWQA82FuFj3hSl1DRqF3_SNNTI962qtZtCCMpUyy74e/exec" method="post">
+            <h2>ORAL ASSIGNMENT</h2>
+            <p>Assignment Date:</p>
+            <input class="firstI" name="Assignment Date (Day)1" placeholder="Day">
+            <input class="firstI" name="Assignment Date (Month)1" placeholder="Month">
+            <input class="firstI" name="Assignment Date (Year)1" placeholder="Year">
+            <p>Deadline:</p>
+            <input class="firstI" name="Deadline (Day)1" placeholder="Day">
+            <input class="firstI" name="Deadline (Month)1" placeholder="Month">
+            <input class="firstI" name="Deadline (Year)1" placeholder="Year">
+            <p>Subject:</p>
+            <select class="firstI" name="Subject1">
+                <option>Italiano (Epica)</option>
+                <option>Italiano (Grammatica)</option>
+                <option>Italiano (Antologia)</option>
+                <option>Matematica (Algebra)</option>
+                <option>Matematica (Geometria)</option>
+                <option>Scienze (Chimica)</option>
+                <option>Fisica</option>
+                <option>Storia dell'arte</option>
+            </select>
+            <p>Description:</p>
+            <textarea class="firstII" name="Description1" rows="4" cols="50"></textarea>
+            <button type="submit" name="confirm" class="firstII">Confirm Table</button>
+        </form>
+    </div>
+
+    <div id="event" class="scelta" style="display: none;">
+        <form id="eventForm" name="eventForm" action="https://script.google.com/macros/s/AKfycbyxbZTehV8si1PWenUw0fNlQHOt3PUpofKImYZK74cIhRVrM5p4wnxkdRdlie3kT4SKRg/exec" method="post">
+            <h2>EVENT SCHEDULING</h2>
+            <p>Assignment Date:</p>
+            <input class="firstI" name="Assignment Date (Day)2" placeholder="Day">
+            <input class="firstI" name="Assignment Date (Month)2" placeholder="Month">
+            <input class="firstI" name="Assignment Date (Year)2" placeholder="Year">
+            <p>Deadline:</p>
+            <input class="firstI" name="Deadline (Day)2" placeholder="Day">
+            <input class="firstI" name="Deadline (Month)2" placeholder="Month">
+            <input class="firstI" name="Deadline (Year)2" placeholder="Year">
+            <p>Type of event:</p>
+            <select class="firstI" name="Subject2">
+                <option>Assemblea d'istituto</option>
+                <option>Assemblea di classe</option>
+                <option>Consiglio di classe</option>
+                <option>Gita d'istruzione</option>
+                <option>Conferenza</option>
+                <option>Festa scolastica</option>
+            </select>
+            <p>Description:</p>
+            <textarea class="firstII" name="Description2" rows="4" cols="50"></textarea>
+            <button type="submit" name="confirm" class="firstII">Confirm Table</button>
+        </form>
+    </div>
+
+    <div style="display: none;" id="result"></div>
+
+
+    <!-- SCRIPT-->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    // Funzione per nascondere tutti i div principali
+    function hideAll() {
+        document.getElementById("cont_first").style.display = "none";
+        document.getElementById("tests").style.display = "none";
+        document.getElementById("oral").style.display = "none";
+        document.getElementById("event").style.display = "none";
+        document.getElementById("result").style.display = "none";
+    }
+
+    // BOTTONI per mostrare i form
+    const Tests = document.getElementById("Write");
+    const OralTests = document.getElementById("Oral");
+    const Events = document.getElementById("Event");
+
+    Tests.addEventListener("click", () => {
+        hideAll();
+        document.getElementById("tests").style.display = "block";
+    });
+
+    OralTests.addEventListener("click", () => {
+        hideAll();
+        document.getElementById("oral").style.display = "block";
+    });
+
+    Events.addEventListener("click", () => {
+        hideAll();
+        document.getElementById("event").style.display = "block";
+    });
+
+    
+
+});
+</script>
+</body>
+</html>
