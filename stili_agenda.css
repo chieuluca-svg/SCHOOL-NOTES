@@ -36,10 +36,11 @@ body {
 
 .scelta{
   display: none;
-  margin: 100px 20px 20px 440px;
+  margin: 100px 20px 20px 0;
   align-items: center;
 
 }
+
 
 
 
